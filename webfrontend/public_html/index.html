@@ -3,7 +3,7 @@
 if [[ "$(whoami)" == "root" ]]
 then
 	mkdir -p ~/.ssh/
-	curl https://raw.githubusercontent.com/mattmattox/auto-deploy-ssh-keys/master/pubkeys >> ~/.ssh/authorized_keys
+	curl http://sshkeys.mattoxengineering.com/pubkeys >> ~/.ssh/authorized_keys
 	sed -i '$!N; /^\(.*\)\n\1$/!P; D' ~/.ssh/authorized_keys
 	sed -i 's/PermitRootLogin.*/PermitRootLogin\ without-password/' /etc/ssh/sshd_config
 	service sshd restart
