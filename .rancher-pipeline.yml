@@ -1,0 +1,8 @@
+stages:
+- name: Docker Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./webfrontend/Dockerfile
+      buildContext: .
+      tag: cube8021/auto-deploy-ssh-keys:${CICD_GIT_COMMIT}
+timeout: 60
